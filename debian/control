@@ -4,7 +4,7 @@ Priority: standard
 Maintainer: gfdgd xi<3025613752@qq.com>, LinuxDeepin Project <linuxdeepin@linuxdeepin.com>
 Build-Depends: debhelper (>=8.0.0)
 Standards-Version: 3.9.3
-Homepage: http://www.linuxdeepin.com
+Homepage: http://debiandde.gfdgdxi.top
 
 
 Package: deepin-desktop-environment-base

@@ -1,0 +1,88 @@
+#!/bin/bash
+set -x
+
+LL_pkgList=/etc/packages.linglong
+LINGLONG_ROOT="/var/lib/linglong"
+
+install_pkg(){
+	if [ ! -f $1 ]
+	then
+		echo "Error: $1 Not Found."
+		exit 0       
+	fi
+
+    for pkg in `cat $1 | grep -v "^#"`
+    do
+        ll-cli --nodbus install ${pkg}
+    done
+}
+
+check_os_version(){
+	if [ -f /etc/os-release ]
+	then
+		VERSION=$(sed -ne '/^VERSION_ID=.*$/P' /etc/os-release | awk -F = '{print $2}' | sed -e 's/"//g' | awk -F . '{print $1}')
+        	if [ ${VERSION} -eq '20' ]
+        	then
+                	LINGLONG_ROOT="/data/linglong"
+        	elif [ ${VERSION} -eq '23' ]
+        	then
+                	LINGLONG_ROOT="/persistent/linglong"
+        	fi
+	fi
+}
+
+change_own_ll(){
+	chown deepin-linglong:users -R ${LINGLONG_ROOT}
+}
+
+update_ll_repo-dev(){
+cat > /persistent/linglong/config.json<< EOF
+{
+    "appDbUrl": "http://10.0.36.228:9002",
+    "repoName": "release-snipe"
+}
+EOF
+
+cat > /persistent/linglong/repo/config<< EOF
+[core]
+repo_version=1
+mode=bare-user-only
+min-free-space-size=600MB
+
+[remote "release-snipe"]
+url=http://10.0.36.228:9002/repos/release-snipe/
+gpg-verify=false
+EOF
+}
+
+update_ll_repo(){
+cat > /persistent/linglong/config.json<< EOF
+{
+    "appDbUrl": "https://store-llrepo.deepin.com"
+}
+EOF
+cat > /persistent/linglong/repo/config<< EOF
+[core]
+repo_version=1
+mode=bare-user-only
+min-free-space-size=600MB
+
+[remote "repo"]
+url=https://store-llrepo.deepin.com/repos/repo
+gpg-verify=false
+EOF
+}
+
+if [ "$1" = "configure" ] && [ "$2" = "" ]; then
+	update_ll_repo-dev
+	install_pkg ${LL_pkgList}
+	update_ll_repo
+	check_os_version
+	change_own_ll
+
+fi
+
+
+
+
+

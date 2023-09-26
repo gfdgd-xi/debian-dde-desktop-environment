@@ -9,6 +9,12 @@ Homepage: http://debiandde.gfdgdxi.top
 
 Package: debian-dde-desktop-environment-base
 Architecture: any
+Provides:
+ deepin-desktop-environment-base,
+Conflicts:
+ deepin-desktop-environment-base,
+Breaks: 
+ deepin-desktop-environment-base,
 Depends: ${misc:Depends},
   adduser,
   apt,
@@ -90,6 +96,12 @@ Description: Deepin New Desktop Environment - Next
 
 Package: debian-dde-desktop-environment-cli
 Architecture: any
+Provides:
+ deepin-desktop-environment-cli,
+Conflicts:
+ deepin-desktop-environment-cli,
+Breaks: 
+ deepin-desktop-environment-cli,
 Depends: ${misc:Depends},
   accountsservice,
   acpid,
@@ -226,6 +238,12 @@ Description: Deepin New Desktop Environment - Next
 
 Package: debian-dde-desktop-environment-core
 Architecture: any
+Provides:
+ deepin-desktop-environment-core,
+Conflicts:
+ deepin-desktop-environment-core,
+Breaks: 
+ deepin-desktop-environment-core,
 Depends: ${misc:Depends},
  dde-clipboard,
  dde-control-center,
@@ -272,6 +290,12 @@ Description: Deepin New Desktop Environment - Next
 
 Package: debian-dde-desktop-environment-extras
 Architecture: any
+Provides:
+ deepin-desktop-environment-extras,
+Conflicts:
+ deepin-desktop-environment-extras,
+Breaks: 
+ deepin-desktop-environment-extras,
 Depends: ${misc:Depends},
  libdareader1,
  debian-dde-desktop-environment-core,
@@ -380,6 +404,12 @@ Description: Deepin New Desktop Environment - Next
 
 Package: debian-dde-desktop-environment-ll
 Architecture: any
+Provides:
+ deepin-desktop-environment-ll,
+Conflicts:
+ deepin-desktop-environment-ll,
+Breaks: 
+ deepin-desktop-environment-ll,
 Depends: ${misc:Depends}
 Pre-Depends: linglong-bin, base-files
 Description: Deepin New Desktop Environment - Next

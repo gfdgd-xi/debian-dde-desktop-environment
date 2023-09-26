@@ -1,4 +1,4 @@
-Source: deepin-desktop-environment
+Source: debian-dde-desktop-environment
 Section: metapackages
 Priority: standard
 Maintainer: gfdgd xi<3025613752@qq.com>, LinuxDeepin Project <linuxdeepin@linuxdeepin.com>
@@ -7,7 +7,7 @@ Standards-Version: 3.9.3
 Homepage: http://debiandde.gfdgdxi.top
 
 
-Package: deepin-desktop-environment-base
+Package: debian-dde-desktop-environment-base
 Architecture: any
 Depends: ${misc:Depends},
   adduser,
@@ -88,7 +88,7 @@ Description: Deepin New Desktop Environment - Next
  .
  You can safety remove it after installed.
 
-Package: deepin-desktop-environment-cli
+Package: debian-dde-desktop-environment-cli
 Architecture: any
 Depends: ${misc:Depends},
   accountsservice,
@@ -224,7 +224,7 @@ Description: Deepin New Desktop Environment - Next
  .
  You can safety remove it after installed.
 
-Package: deepin-desktop-environment-core
+Package: debian-dde-desktop-environment-core
 Architecture: any
 Depends: ${misc:Depends},
  dde-clipboard,
@@ -236,7 +236,7 @@ Depends: ${misc:Depends},
  dde-qt5integration,
  dde-session-ui,
  deepin-default-settings,
- deepin-wallpapers-nonfree,
+ debian-dde-wallpapers-nonfree,
  deepin-desktop-base,
  deepin-icon-theme,
  deepin-desktop-theme,
@@ -270,11 +270,11 @@ Description: Deepin New Desktop Environment - Next
  You can safety remove it after installed.
 
 
-Package: deepin-desktop-environment-extras
+Package: debian-dde-desktop-environment-extras
 Architecture: any
 Depends: ${misc:Depends},
  libdareader1,
- deepin-desktop-environment-core,
+ debian-dde-desktop-environment-core,
  dde-dconfig-daemon,
  dde-qt5wayland-plugin,
  dde-manual-content,
@@ -378,7 +378,7 @@ Description: Deepin New Desktop Environment - Next
  part of the official deepin release.
  You can safety remove it after installed.
 
-Package: deepin-desktop-environment-ll
+Package: debian-dde-desktop-environment-ll
 Architecture: any
 Depends: ${misc:Depends}
 Pre-Depends: linglong-bin, base-files
